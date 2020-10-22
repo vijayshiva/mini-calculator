@@ -1,0 +1,57 @@
+<h2>Mini Calc</h2>
+<input type="text" id="screen" value="0"><br>
+<button id="clear" onclick="clr()">C</button>
+<button id="add" onclick="calc('+')">+</button>
+<button id="sub" onclick="calc('-')">-</button>
+<button id="mul"onclick="calc('*')">x</button><br>
+<button id="seven"onclick="calc('7')">7</button>
+<button id="eight"onclick="calc('8')">8</button>
+<button id="nine"onclick="calc('9')">9</button>
+<button id="div"onclick="calc('/')">/</button><br>
+<button id="four"onclick="calc('4')">4</button>
+<button id="five"onclick="calc('5')">5</button>
+<button id="six"onclick="calc('6')">6</button>
+<button id="equal"onclick="output()">=</button><br>
+<button id="one"onclick="calc('1')">1</button>
+<button id="two"onclick="calc('2')">2</button>
+<button id="three"onclick="calc('3')">3</button>
+<button id="zero"onclick="calc('0')">0</button>
+<script>
+// Edit your script here
+var exp = [];
+var screen = document.getElementById("screen")
+function calc(element){
+var val = validate(element);
+if(val){
+return true
+}
+else{
+exp.push(element);
+var input = exp.join(" ")
+screen.value=input;
+console.log(input)
+console.log(exp);
+}
+}
+function output(){
+var input = exp.join("")
+console.log("ddd"+input)
+screen.value=eval(input)
+exp.length=0
+}
+function clr(){
+console.log(screen.value)
+screen.value = 0
+exp.length=0
+}
+function validate(element){
+var lastele=exp[exp.length-1];
+console.log(lastele)
+if(element == lastele){
+if(element == '*' || element == '+'|| element == '-'|| element == '/'){
+alert("ytft")
+return true
+}
+}
+}
+</script>
